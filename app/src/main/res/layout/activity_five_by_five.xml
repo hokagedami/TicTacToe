@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".FiveByFiveActivity"
+    >
+
+    <LinearLayout
+        android:id="@+id/boxes_5_00_04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        android:orientation="horizontal"
+        >
+
+
+        <Button
+            android:id="@+id/box_5_00"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_margin="5dp"
+            style= "?android:attr/buttonBarButtonStyle"/>
+        <Button
+            android:id="@+id/box_5_01"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_margin="5dp"
+            style= "?android:attr/buttonBarButtonStyle"/>
+        <Button
+            android:id="@+id/box_5_02"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_margin="5dp"
+            style= "?android:attr/buttonBarButtonStyle"/>
+        <Button
+            android:id="@+id/box_5_03"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_margin="5dp"
+            style= "?android:attr/buttonBarButtonStyle"/>
+        <Button
+            android:id="@+id/box_5_04"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_margin="5dp"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boxes_5_10_14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/boxes_5_00_04"
+        android:background="#ffff"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/box_5_10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boxes_5_20_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/boxes_5_10_14"
+        android:background="#ffff"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/box_5_20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_21"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_22"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_23"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_24"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boxes_5_30_34"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/boxes_5_20_24"
+        android:background="#ffff"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/box_5_30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_31"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_32"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_33"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_34"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boxes_5_40_44"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/boxes_5_30_34"
+        android:background="#ffff"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/box_5_40"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_41"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_42"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_43"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/box_5_44"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            style= "?android:attr/buttonBarButtonStyle"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="270dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/button_shape"
+            android:text="@string/player_x_5x5"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            />
+
+        <TextView
+            android:id="@+id/x_score_5x5"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/button_shape"
+            android:text="@string/_0_5x5"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="203dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/player_o_score_5x5"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/button_shape"
+            android:text="@string/player_o_5x5"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/o_score_5x5"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/button_shape"
+            android:text="@string/_0_5x5"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reset_button_5x5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/reset_5x5"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp" />
+
+
+</RelativeLayout>
