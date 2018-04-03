@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hokage.tictactoe.StartScreenActivity"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    tools:context="com.hokage.tictactoe.StartScreenActivity">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ffff"
         android:text="@string/tic_tac_toe_header"
         android:textAlignment="center"
-        android:textSize="35sp"
-        android:textColor="@color/colorAccent"
-        android:background="#ffff"
         android:textAllCaps="true"
-        android:textStyle="bold"
-        />
+        android:textColor="@color/colorAccent"
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
 
     <ImageView
@@ -30,7 +28,7 @@
         android:layout_marginTop="100dp"
         android:contentDescription="@string/x_and_o_logo"
         android:cropToPadding="false"
-        android:src="@drawable/x_and_o" />
+        android:src="@mipmap/x_and_o" />
 
     <Button
         android:id="@+id/one_player_button"
@@ -41,11 +39,11 @@
         android:layout_marginBottom="220dp"
         android:background="@drawable/button_shape"
         android:contentDescription="@string/one_player_button"
+        android:onClick="onePlayer"
         android:text="@string/one_player"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        android:onClick="onePlayer"/>
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/two_player_button"
@@ -56,28 +54,26 @@
         android:layout_marginBottom="134dp"
         android:background="@drawable/button_shape"
         android:contentDescription="@string/two_player_button"
+        android:onClick="twoPlayer"
         android:text="@string/two_players"
-        android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        android:onClick="twoPlayer"/>
-
-    <Button
-        android:id="@+id/options_button"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp"
-        android:background="@drawable/button_shape"
-        android:contentDescription="@string/options_button"
-        android:onClick="options"
-        android:text="@string/options"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
         android:textSize="24sp" />
 
-
+    <Button
+        android:id="@+id/help_button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/button_shape"
+        android:contentDescription="@string/help_button"
+        android:onClick="help"
+        android:text="@string/help"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
 
 
 </RelativeLayout>

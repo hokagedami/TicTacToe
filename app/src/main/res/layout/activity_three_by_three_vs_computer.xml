@@ -4,21 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".ThreeByThreeActivity">
+    tools:context=".ThreeByThreeVsComputer">
 
     <TextView
         android:id="@+id/symbol_choice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/first_move"
+        android:text="YOUR SYMBOL"
         android:textAlignment="center"
         android:textColor="#ffff"
         android:textSize="20sp" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_alignParentStart="true"
@@ -30,11 +30,11 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="70dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -43,11 +43,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="symbolChoice"
-            android:text="@string/radio_o"
+            android:text="@string/radio_x"
             android:textColor="#ffff"
             android:textSize="25sp"
-            android:textStyle="bold"
-            tools:text="O" />
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/radio_X"
@@ -55,25 +54,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="symbolChoice"
-            android:text="@string/radio_x"
-            android:textColor="#ffff"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            tools:text="X" />
-
-        <RadioButton
-            android:id="@+id/radio_XO"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="symbolChoice"
-            android:text="@string/radio_xo"
+            android:text="@string/radio_o"
             android:textColor="#ffff"
             android:textSize="25sp"
             android:textStyle="bold" />
 
 
     </RadioGroup>
+
 
     <LinearLayout
         android:id="@+id/boxes_00_02"
@@ -126,7 +114,7 @@
         android:id="@+id/boxes_10_12"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_above="@id/boxes_20_22"
+        android:layout_above="@+id/boxes_20_22"
         android:layout_alignParentStart="true"
         android:background="#ffff"
         android:orientation="horizontal">
@@ -175,7 +163,7 @@
         android:layout_height="120dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="197dp"
+        android:layout_marginBottom="225dp"
         android:background="#ffff"
         android:orientation="horizontal">
 
@@ -222,7 +210,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="121dp"
+        android:layout_marginBottom="151dp"
         android:orientation="horizontal">
 
         <TextView
@@ -230,11 +218,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:background="@drawable/button_shape"
-            android:text="@string/player_1"
+            android:text="Player X"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="40sp"
-            tools:text="Player 1" />
+            tools:text="Player X" />
 
         <TextView
             android:id="@+id/player_x_score"
@@ -256,7 +244,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="62dp"
+        android:layout_marginBottom="76dp"
         android:orientation="horizontal">
 
         <TextView
@@ -264,11 +252,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:background="@drawable/button_shape"
-            android:text="@string/player_2"
+            android:text="Player O"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="40sp"
-            tools:text="Player 2" />
+            tools:text="Player O" />
 
         <TextView
             android:id="@+id/player_o_score"
@@ -295,6 +283,5 @@
         android:text="@string/reset"
         android:textColor="@color/colorAccent"
         android:textSize="30sp" />
-
 
 </RelativeLayout>

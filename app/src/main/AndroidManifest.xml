@@ -11,24 +11,32 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartScreenActivity" />
-        <activity android:name=".OnePlayerActivity" />
-        <activity android:name=".TwoPlayersActivity" />
-        <activity android:name=".OptionsActivity" />
-        <activity android:name=".ReminderActivity" />
-        <activity android:name=".BoardTypeActivity" />
-        <activity android:name=".HelpActivity" />
+        <activity
+            android:name=".StartScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BoardTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HelpActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ThreeByThreeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_three_by_three"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".FiveByFiveActivity"></activity>
+        <activity
+            android:name=".FiveByFiveActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ThreeByThreeVsComputer"></activity>
     </application>
 
 </manifest>

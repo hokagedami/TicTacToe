@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BoardTypeActivity"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    tools:context=".BoardTypeActivity">
 
-    <CheckBox
-        android:id="@+id/daily_checkBox"
+    <Button
+        android:id="@+id/button_3x3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,12 +17,13 @@
         android:layout_marginTop="127dp"
         android:background="@drawable/button_shape"
         android:text="@string/_3_x_3_"
+        android:onClick="playThreeByThree"
         android:textColor="@color/colorAccent"
         android:textSize="40sp"
         android:textAlignment="center"/>
 
-    <CheckBox
-        android:id="@+id/twice_daily_checkBox"
+    <Button
+        android:id="@+id/button_5x5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -31,6 +32,7 @@
         android:layout_marginTop="263dp"
         android:background="@drawable/button_shape"
         android:text="@string/_5_x_5"
+        android:onClick="playFiveByFive"
         android:textColor="@color/colorAccent"
         android:textSize="40sp"
         android:textAlignment="center"/>

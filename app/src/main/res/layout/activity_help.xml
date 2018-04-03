@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HelpActivity"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    tools:context=".HelpActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tic-tac-toe (also known as noughts and crosses or Xs and Os) is a game for two players, X and O, who take turns marking the spaces in a 3x3, 5x5, 7x7, etc grids. The player who succeeds in placing three, four or more of their marks in a horizontal, vertical, or diagonal row wins the game."
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="30sp" />
 
 </RelativeLayout>

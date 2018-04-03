@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".FiveByFiveActivity"
-    >
+    tools:context=".FiveByFiveActivity">
 
     <LinearLayout
         android:id="@+id/boxes_5_00_04"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffff"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
 
         <Button
             android:id="@+id/box_5_00"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
             android:layout_margin="5dp"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:layout_weight="1"
+            android:background="@color/colorAccent" />
+
         <Button
             android:id="@+id/box_5_01"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
             android:layout_margin="5dp"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:layout_weight="1"
+            android:background="@color/colorAccent" />
+
         <Button
             android:id="@+id/box_5_02"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
             android:layout_margin="5dp"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:layout_weight="1"
+            android:background="@color/colorAccent" />
+
         <Button
             android:id="@+id/box_5_03"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
             android:layout_margin="5dp"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:layout_weight="1"
+            android:background="@color/colorAccent" />
+
         <Button
             android:id="@+id/box_5_04"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
             android:layout_margin="5dp"
-            style= "?android:attr/buttonBarButtonStyle"/>
-
+            android:layout_weight="1"
+            android:background="@color/colorAccent" />
 
 
     </LinearLayout>
@@ -74,48 +74,48 @@
 
         <Button
             android:id="@+id/box_5_10"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_11"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_12"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_13"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_14"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
 
     </LinearLayout>
@@ -132,48 +132,48 @@
 
         <Button
             android:id="@+id/box_5_20"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_21"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_22"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_23"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_24"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
 
     </LinearLayout>
@@ -190,48 +190,48 @@
 
         <Button
             android:id="@+id/box_5_30"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_31"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_32"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_33"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_34"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
 
     </LinearLayout>
@@ -248,48 +248,48 @@
 
         <Button
             android:id="@+id/box_5_40"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_41"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_42"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_43"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
         <Button
             android:id="@+id/box_5_44"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
-            style= "?android:attr/buttonBarButtonStyle"/>
+            android:background="@color/colorAccent" />
 
 
     </LinearLayout>
@@ -310,8 +310,7 @@
             android:text="@string/player_x_5x5"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="40sp"
-            />
+            android:textSize="40sp" />
 
         <TextView
             android:id="@+id/x_score_5x5"

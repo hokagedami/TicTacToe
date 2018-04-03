@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hokage.tictactoe.MainActivity"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    tools:context="com.hokage.tictactoe.MainActivity">
 
     <ImageView
+        android:id="@+id/star_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/starlogo"
-        android:src="@drawable/star_logo"
         android:layout_centerInParent="true"
-        android:id="@+id/star_logo"
-        android:stateListAnimator="@anim/rotate_animation"
-        />
-
+        android:contentDescription="@string/starlogo"
+        android:src="@mipmap/star_logo"
+        android:stateListAnimator="@anim/rotate_animation" />
 
 
 </RelativeLayout>

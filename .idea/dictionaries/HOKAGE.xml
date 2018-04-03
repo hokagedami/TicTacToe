@@ -2,6 +2,7 @@
   <dictionary name="HOKAGE">
     <words>
       <w>hokage</w>
+      <w>minimax</w>
       <w>quitapp</w>
       <w>starlogo</w>
       <w>tictactoe</w>
