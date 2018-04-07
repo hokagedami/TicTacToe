@@ -1,5 +1,6 @@
 package com.hokage.tictactoe;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,17 +9,26 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.os.Build.VERSION_CODES.KITKAT;
+import static android.view.View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 public class ThreeByThreeVsComputer extends AppCompatActivity implements View.OnClickListener {
 
-    public Button[][] buttons = new Button[3][3];
+    public Button[][] buttons;
     public boolean playerHumanTurn = true;
     public String humanPiece;
     public String computerPiece;
-    private int roundCounts;
+    public int roundCounts;
     private TextView humanPlayerScoreTextView;
     private TextView computerScoreTextView;
     private int humanScore;
     private int computerScore;
+
+    {
+        buttons = new Button[3][3];
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +53,18 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         super.onWindowFocusChanged ( hasFocus );
         View decorView = getWindow ( ).getDecorView ( );
         if (hasFocus) {
-            decorView.setSystemUiVisibility (
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY );
+            if (Build.VERSION.SDK_INT >= KITKAT) {
+                decorView.setSystemUiVisibility (
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                | SYSTEM_UI_FLAG_IMMERSIVE_STICKY );
+            }
         }
     }
+
 
     @Override
     public void onClick(View v) {
@@ -59,12 +72,15 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
             if (playerHumanTurn) {
                 ((Button) v).setText ( humanPiece );
             } else {
-                computerPlay ( );
+                Move compMove = findBestMove ( );
+                int i = compMove.getRow ( );
+                int j = compMove.getCol ( );
+                buttons[i][j].setText ( computerPiece );
+
             }
         } else {
             return;
         }
-
         roundCounts++;
 
         if (checkWin ( )) {
@@ -73,19 +89,37 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
             } else {
                 computerWin ( );
             }
-        } else if (roundCounts == 9) {
+        } else if (roundCounts == 9 && isMoveLeft ( )) {
             draw ( );
         } else {
-            playerHumanTurn = !playerHumanTurn;
+            playerHumanTurn = false;
+        }
+
+    }
+
+
+    public void symbolChoice(View view) {
+        boolean checked = ((RadioButton) view).isChecked ( );
+        switch (view.getId ( )) {
+            case R.id.radio_X:
+                if (checked) {
+                    humanPiece = "X";
+                    computerPiece = "O";
+                    resetBoard ( );
+                    break;
+                }
+            case R.id.radio_O:
+                if (checked) {
+                    humanPiece = "O";
+                    computerPiece = "X";
+                    resetBoard ( );
+                    break;
+                }
+
         }
     }
 
 
-    public void computerPlay() {
-        Move bestMove = findBestMove ( buttons );
-        buttons[bestMove.row][bestMove.col].setText ( computerPiece );
-
-    }
 
     private void resetBoard() {
         for (int i = 0; i < 3; i++) {
@@ -105,13 +139,13 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         computerScoreTextView.setText ( String.valueOf ( computerScore ) );
     }
 
+
     private void humanPlayerWin() {
         humanScore++;
         Toast.makeText ( this, "YOU WIN!", Toast.LENGTH_SHORT ).show ( );
         updateScoreText ( );
         resetBoard ( );
     }
-
 
     private void computerWin() {
         computerScore++;
@@ -133,7 +167,8 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         computerScoreTextView.setText ( String.valueOf ( computerScore ) );
     }
 
-    private boolean checkWin() {
+
+    public boolean checkWin() {
         String[][] field = new String[3][3];
 
         for (int i = 0; i < 3; i++) {
@@ -158,102 +193,16 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
             }
         }
         //checking diagonals for win
-        if (field[0][0].equals ( field[1][1] )
-                && field[0][0].equals ( field[2][2] )
-                && !field[0][0].equals ( "" )) {
-            return true;
-        }
-
-        return field[0][2].equals ( field[1][1] )
-                && field[0][2].equals ( field[2][0] )
-                && !field[0][2].equals ( "" );
+        return field[0][0].equals ( field[1][1] ) && field[0][0].equals ( field[2][2] )
+                && !field[0][0].equals ( "" ) || field[0][2].equals ( field[1][1] )
+                && field[0][2].equals ( field[2][0] ) && !field[0][2].equals ( "" );
 
     }
 
-    public void symbolChoice(View view) {
-        boolean checked = ((RadioButton) view).isChecked ( );
-        switch (view.getId ( )) {
-            case R.id.radio_X:
-                if (checked) {
-                    humanPiece = "X";
-                    computerPiece = "O";
-                    resetBoard ( );
-                    break;
-                }
-            case R.id.radio_O:
-                if (checked) {
-                    humanPiece = "0";
-                    computerPiece = "X";
-                    resetBoard ( );
-                    break;
-                }
-
-        }
-    }
-
-    public int evaluateBoard(Button[][] board) {
-
-        String[][] field = new String[3][3];
+    public boolean isMoveLeft() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                field[i][j] = board[i][j].getText ( ).toString ( );
-            }
-        }
-        // checking rows for win
-        for (int k = 0; k < 3; k++) {
-            if (field[k][0].equals ( field[k][1] )
-                    && field[k][0].equals ( field[k][2] )
-                    && !field[k][0].equals ( "" )) {
-                if (field[k][0].equals ( computerPiece )) {
-                    return 10;
-                } else if (field[k][0].equals ( humanPiece )) {
-                    return -10;
-                }
-            }
-        }
-        // checking columns for win
-        for (int k = 0; k < 3; k++) {
-            if (field[0][k].equals ( field[1][k] )
-                    && field[0][k].equals ( field[2][k] )
-                    && !field[0][k].equals ( "" )) {
-                if (field[0][k].equals ( computerPiece )) {
-                    return 10;
-                } else if (field[0][k].equals ( humanPiece )) {
-                    return -10;
-                }
-
-            }
-        }
-
-        //checking diagonals for win
-        if (field[0][0].equals ( field[1][1] )
-                && field[0][0].equals ( field[2][2] )
-                && !field[0][0].equals ( "" )) {
-            if (field[0][0].equals ( computerPiece )) {
-                return 10;
-            } else if (field[0][0].equals ( humanPiece )) {
-                return -10;
-            }
-        }
-
-        if (field[0][2].equals ( field[1][1] )
-                && field[0][2].equals ( field[2][0] )
-                && !field[0][2].equals ( "" )) {
-            if (field[0][2].equals ( computerPiece )) {
-                return 10;
-            } else if (field[0][2].equals ( humanPiece )) {
-                return -10;
-            }
-        }
-
-        return 0;
-    }
-
-    private boolean isMoveLeft(Button[][] board) {
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board[i][j].getText ( ).toString ( ).equals ( "" )) {
+                if (buttons[i][j].getText ( ).toString ( ).equals ( "" )) {
                     return true;
                 }
             }
@@ -261,86 +210,103 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         return false;
     }
 
-    private int minimax(Button[][] board, int depth, boolean computerTurn) {
-        String[][] field = new String[3][3];
-        int score = evaluateBoard ( board );
-        if (score == 10) {
-            return score;
-        }
-        if (score == -10) {
-            return score;
-        }
+    public int minimaxScore() {
 
-        if (!isMoveLeft ( board )) {
+        /* depth =   9 - roundCounts; */
+        if (checkWin ( )) {
+            if (playerHumanTurn) {
+                //  score = depth - 10;
+                return -10;
+            } else {
+                /* score = 10 - depth; */
+                return 10;
+            }
+        } else {
             return 0;
         }
-        if (computerTurn) {
-            int best = -1000;
+    }
 
+    public int minimax(Button[][] buttons, int depth, boolean isMax) {
+
+        int score = minimaxScore ( );
+
+        if (score == 10 || score == -10) {
+            return score;
+        }
+
+        if (isMoveLeft ( )) {
+            return 0;
+        }
+
+        if (isMax) {
+            int best = -1000;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (buttons[i][j].getText ( ).toString ( ).equals ( "" )) {
                         buttons[i][j].setText ( computerPiece );
-                        best = Math.max ( best, minimax ( board, depth + 1, playerHumanTurn ) );
+                        best = max ( minimax ( buttons, depth + 1, false ), best );
                         buttons[i][j].setText ( "" );
-
                     }
                 }
-
             }
             return best;
         } else {
             int best = 1000;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-                    field[i][j] = buttons[i][j].getText ( ).toString ( );
-                    if (field[i][j].equals ( "" )) {
-                        if (humanPiece.equals ( "X" )) {
-                            buttons[i][j].setText ( "O" );
-                        }
-
-                        if (humanPiece.equals ( "O" )) {
-                            buttons[i][j].setText ( "X" );
-                        }
-
-                        best = Math.max ( best, minimax ( board, depth + 1, playerHumanTurn ) );
+                    if (buttons[i][j].getText ( ).toString ( ).equals ( "" )) {
+                        buttons[i][j].setText ( humanPiece );
+                        best = min ( minimax ( buttons, depth + 1, true ), best );
                         buttons[i][j].setText ( "" );
-
                     }
                 }
-
             }
             return best;
         }
+
     }
 
-    private Move findBestMove(Button[][] board) {
-        int bestValue = -1000;
-        Move bestMove = new Move ( );
-        bestMove.row = -1;
-        bestMove.col = -1;
+    public Move findBestMove() {
+        int bestVal = -1000;
+        Move bestMove = new Move ( ) {
+            @Override
+            public void setRow(int row) {
+                super.setRow ( -1 );
+            }
+
+            @Override
+            public void setCol(int col) {
+                super.setCol ( -1 );
+            }
+        };
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (board[i][j].getText ( ).toString ( ).equals ( "" )) {
-                    board[i][j].setText ( "O" );
-                    int moveValue = minimax ( board, 0, false );
-                    board[i][j].setText ( "" );
 
-                    if (moveValue > bestValue) {
-                        bestMove.row = i;
-                        bestMove.col = j;
+                if (buttons[i][j].getText ( ).toString ( ).equals ( "" )) {
+                    buttons[i][j].setText ( computerPiece );
+                    int moveVal = minimax ( buttons, 0, false );
+                    buttons[i][j].setText ( "" );
+
+                    if (moveVal > bestVal) {
+                        bestMove.setRow ( i );
+                        bestMove.setCol ( j );
                     }
                 }
             }
         }
-        return bestMove;
-    }
 
-    public class Move {
-        int row;
-        int col;
+        return bestMove;
     }
 
 
 }
+
+
+
+
+
+
+
+
+
