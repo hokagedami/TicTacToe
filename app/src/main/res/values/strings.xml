@@ -25,5 +25,8 @@
     <string name="help_button">help_button</string>
     <string name="help">Help</string>
     <string name="first_move">FIRST MOVE</string>
+    <string name="your_symbol_vs_comp">YOUR SYMBOL</string>
+    <string name="player_x_vs_comp">Player X</string>
+    <string name="player_o_vs_comp">Player O</string>
 
 </resources>
