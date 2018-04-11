@@ -72,23 +72,25 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         if (!((Button) v).getText ( ).toString ( ).equals ( "" )) {
             return;
         }
-        if (playerHumanTurn) {
+        if (((Button) v).getText ( ).toString ( ).equals ( "" )) {
             ((Button) v).setText ( humanPiece );
-            playerHumanTurn = false;
-        } else {
-            Move move = findBestMove ( );
-            buttons[move.getRow ( )][move.getCol ( )].setText ( computerPiece );
+            roundCounts++;
+            winner = checkWin ( );
+            if (winner == 0) {
+                Move move = findBestMove ( );
+                buttons[move.getRow ( )][move.getCol ( )].setText ( computerPiece );
+                roundCounts++;
+                winner = checkWin ( );
+            }
+            if (winner == 1) {
+                computerWin ( );
+            } else if (winner == 2) {
+                humanPlayerWin ( );
+            } else if (roundCounts == 9) {
+                draw ( );
+            } else
+                playerHumanTurn = !playerHumanTurn;
         }
-        roundCounts++;
-        winner = checkWin ( );
-        if (winner == 1) {
-            computerWin ( );
-        } else if (winner == 2) {
-            humanPlayerWin ( );
-        } else if (roundCounts == 9) {
-            draw ( );
-        } else
-            playerHumanTurn = !playerHumanTurn;
     }
 
 
@@ -221,7 +223,7 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         return 0;
     }
 
-   /* public boolean isMoveLeft() {
+    public boolean isMoveLeft() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (buttons[i][j].getText ( ).toString ( ).equals ( "" )) {
@@ -230,7 +232,7 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
             }
         }
         return false;
-    } */
+    }
 
     public Move findBestMove() {
         Move bestMove = new Move ( );
