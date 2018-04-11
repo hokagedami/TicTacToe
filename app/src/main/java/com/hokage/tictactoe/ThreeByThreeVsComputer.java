@@ -70,6 +70,7 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         if (!((Button) v).getText ( ).toString ( ).equals ( "" )) {
+            v.setEnabled ( false );
             return;
         }
         if (((Button) v).getText ( ).toString ( ).equals ( "" )) {
