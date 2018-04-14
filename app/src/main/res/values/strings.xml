@@ -28,5 +28,9 @@
     <string name="your_symbol_vs_comp">YOUR SYMBOL</string>
     <string name="player_x_vs_comp">Player X</string>
     <string name="player_o_vs_comp">Player O</string>
+    <string name="human">Human</string>
+    <string name="android">Android</string>
+    <string name="player_1_5x5">Player 1</string>
+    <string name="player_2_5x5">Player 2</string>
 
 </resources>

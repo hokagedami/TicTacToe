@@ -6,10 +6,83 @@
     android:background="@color/colorAccent"
     tools:context=".FiveByFiveActivity">
 
+
+    <TextView
+        android:id="@+id/symbol_choice_5x5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/first_move"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/symbol_choice_5x5"
+        android:background="#ffff">
+
+    </View>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_O_5x5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="symbolChoiceFiveByFive"
+            android:text="@string/radio_o"
+            android:textColor="#ffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="O" />
+
+        <RadioButton
+            android:id="@+id/radio_X_5x5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="symbolChoiceFiveByFive"
+            android:text="@string/radio_x"
+            android:textColor="#ffff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="X" />
+
+        <RadioButton
+            android:id="@+id/radio_XO_5x5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="symbolChoiceFiveByFive"
+            android:text="@string/radio_xo"
+            android:textColor="#ffff"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+    </RadioGroup>
+
     <LinearLayout
         android:id="@+id/boxes_5_00_04"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="84dp"
         android:background="#ffff"
         android:orientation="horizontal">
 
@@ -67,7 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/boxes_5_00_04"
+        android:layout_below="@+id/boxes_5_00_04"
         android:background="#ffff"
         android:orientation="horizontal">
 
@@ -125,7 +198,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@id/boxes_5_10_14"
+        android:layout_below="@+id/boxes_5_10_14"
         android:background="#ffff"
         android:orientation="horizontal">
 
@@ -299,7 +372,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="270dp"
+        android:layout_marginBottom="174dp"
         android:orientation="horizontal">
 
         <TextView
@@ -307,13 +380,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:background="@drawable/button_shape"
-            android:text="@string/player_x_5x5"
+            android:text="@string/player_1_5x5"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="40sp" />
 
         <TextView
-            android:id="@+id/x_score_5x5"
+            android:id="@+id/player1_score_5x5"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -331,22 +404,21 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="203dp"
+        android:layout_marginBottom="103dp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/player_o_score_5x5"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:background="@drawable/button_shape"
-            android:text="@string/player_o_5x5"
+            android:text="@string/player_2_5x5"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="40sp" />
 
         <TextView
-            android:id="@+id/o_score_5x5"
+            android:id="@+id/player2_score_5x5"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -365,11 +437,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/button_shape"
         android:text="@string/reset_5x5"
         android:textColor="@color/colorAccent"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
 
 </RelativeLayout>

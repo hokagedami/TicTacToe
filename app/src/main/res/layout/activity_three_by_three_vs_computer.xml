@@ -218,14 +218,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:background="@drawable/button_shape"
-            android:text="@string/player_x_vs_comp"
+            android:text="@string/human"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="40sp"
-            tools:text="Player X" />
+            tools:text="Human" />
 
         <TextView
-            android:id="@+id/player_x_score"
+            android:id="@+id/player_human_score"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
@@ -252,14 +252,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:background="@drawable/button_shape"
-            android:text="@string/player_o_vs_comp"
+            android:text="@string/android"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="40sp"
-            tools:text="Player O" />
+            tools:text="Android" />
 
         <TextView
-            android:id="@+id/player_o_score"
+            android:id="@+id/player_android_score"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"

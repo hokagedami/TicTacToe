@@ -9,12 +9,11 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import static android.os.Build.VERSION_CODES.KITKAT;
 import static android.view.View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+import static java.lang.Integer.MIN_VALUE;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class ThreeByThreeVsComputer extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,9 +26,6 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
     private TextView computerScoreTextView;
     private int humanScore;
     private int computerScore;
-    private List<Move> freePiece = new ArrayList<> ( );
-    private Random random = new Random ( );
-    private int winner;
 
 
     @Override
@@ -54,8 +50,8 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_three_by_three_vs_computer );
 
-        humanPlayerScoreTextView = findViewById ( R.id.player_x_score );
-        computerScoreTextView = findViewById ( R.id.player_o_score );
+        humanPlayerScoreTextView = findViewById ( R.id.player_human_score );
+        computerScoreTextView = findViewById ( R.id.player_android_score );
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -69,29 +65,30 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View v) {
-        if (!((Button) v).getText ( ).toString ( ).equals ( "" )) {
-            v.setEnabled ( false );
-            return;
-        }
-        if (((Button) v).getText ( ).toString ( ).equals ( "" )) {
+        Move move;
+        int winner;
+        do {
             ((Button) v).setText ( humanPiece );
             roundCounts++;
+            if (roundCounts == 9) {
+                break;
+            }
             winner = checkWin ( );
-            if (winner == 0) {
-                Move move = findBestMove ( );
+            if (checkWin ( ) == 0) {
+                move = findBestMove ( );
                 buttons[move.getRow ( )][move.getCol ( )].setText ( computerPiece );
                 roundCounts++;
-                winner = checkWin ( );
             }
-            if (winner == 1) {
-                computerWin ( );
-            } else if (winner == 2) {
-                humanPlayerWin ( );
-            } else if (roundCounts == 9) {
-                draw ( );
-            } else
-                playerHumanTurn = !playerHumanTurn;
+        } while (winner < 0 || roundCounts == 9);
+        winner = checkWin ( );
+        if (winner == 1) {
+            computerWin ( );
+        } else if (winner == 2) {
+            humanPlayerWin ( );
+        } else if (roundCounts == 9 && winner == 0) {
+            draw ( );
         }
+
     }
 
 
@@ -136,24 +133,21 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
 
     private void humanPlayerWin() {
         humanScore++;
-        Toast.makeText ( this, "YOU WIN!", Toast.LENGTH_SHORT ).show ( );
+        Toast.makeText ( this, "YOU WIN!", Toast.LENGTH_LONG ).show ( );
         updateScoreText ( );
         resetBoard ( );
     }
 
     private void computerWin() {
         computerScore++;
-        Toast.makeText ( this, "COMPUTER WINS!\nDO BETTER NEXT GAME.", Toast.LENGTH_SHORT ).show ( );
+        Toast.makeText ( this, "COMPUTER WINS!", Toast.LENGTH_LONG ).show ( );
         updateScoreText ( );
         resetBoard ( );
-
     }
 
     private void draw() {
-        Toast.makeText ( this, "DRAW", Toast.LENGTH_SHORT ).show ( );
+        Toast.makeText ( this, "DRAW", Toast.LENGTH_LONG ).show ( );
         resetBoard ( );
-
-
     }
 
     private void updateScoreText() {
@@ -235,25 +229,78 @@ public class ThreeByThreeVsComputer extends AppCompatActivity implements View.On
         return false;
     }
 
+    public int minimaxScore() {
+
+        int checkWinScore = checkWin ( );
+        if (checkWinScore == 1) {
+            return 10 - roundCounts;
+        }
+        if (checkWinScore == 2) {
+            return roundCounts - 10;
+        }
+        return 0;
+    }
+
+    public int minimax(Button[][] board, int depth, boolean isMax) {
+        int score;
+        score = minimaxScore ( );
+        if (score != 0) {
+            return score;
+        }
+
+        if (isMoveLeft ( )) {
+            return 0;
+        }
+
+        if (isMax) {
+            int best = MIN_VALUE;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[i][j].getText ( ).toString ( ).equals ( "" )) {
+                        board[i][j].setText ( computerPiece );
+                        best = max ( best, minimax ( board, depth + 1, false ) );
+                        board[i][j].setText ( "" );
+                    }
+                }
+            }
+            return best;
+        } else {
+            int best = Integer.MAX_VALUE;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[i][j].getText ( ).toString ( ).equals ( "" )) {
+                        board[i][j].setText ( humanPiece );
+                        best = min ( best, minimax ( board, depth + 1, true ) );
+                        board[i][j].setText ( "" );
+                    }
+                }
+            }
+            return best;
+        }
+    }
+
     public Move findBestMove() {
+        int bestValue = MIN_VALUE;
         Move bestMove = new Move ( );
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if ((buttons[i][j].isEnabled ( )))
-                    if (buttons[i][j].getText ( ).toString ( ).equals ( "" )) {
-                        bestMove.setRow ( i );
-                        bestMove.setCol ( j );
-                        freePiece.add ( bestMove );
-                    }
+                if (buttons[i][j].getText ( ).toString ( ).equals ( "" )) {
+                    buttons[i][j].setText ( computerPiece );
+                    bestValue = max ( bestValue, minimax ( buttons, roundCounts, false ) );
+                    bestMove.setRow ( i );
+                    bestMove.setCol ( j );
+                    buttons[i][j].setText ( "" );
+                }
             }
         }
-        int rand = random.nextInt ( freePiece.size ( ) );
-        bestMove = freePiece.get ( rand );
         return bestMove;
     }
 
 
 }
+
+
 
 
 

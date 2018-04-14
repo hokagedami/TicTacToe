@@ -18,8 +18,8 @@ public class ThreeByThreeActivity extends AppCompatActivity implements View.OnCl
     private TextView playerOScoreTextView;
     private int playerXScore;
     private int playerOScore;
-    private String player1Piece = "";
-    private String player2Piece = "";
+    private String player1Piece = "X";
+    private String player2Piece = "O";
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -156,13 +156,10 @@ public class ThreeByThreeActivity extends AppCompatActivity implements View.OnCl
             }
         }
         //checking diagonals for win
-        if (field[0][0].equals ( field[1][1] )
+        return field[0][0].equals ( field[1][1] )
                 && field[0][0].equals ( field[2][2] )
-                && !field[0][0].equals ( "" )) {
-            return true;
-        }
-
-        return field[0][2].equals ( field[1][1] )
+                && !field[0][0].equals ( "" )
+                || field[0][2].equals ( field[1][1] )
                 && field[0][2].equals ( field[2][0] )
                 && !field[0][2].equals ( "" );
 
@@ -188,8 +185,8 @@ public class ThreeByThreeActivity extends AppCompatActivity implements View.OnCl
             case R.id.radio_XO:
                 if (checked) {
                     player1Turn = !player1Turn;
-                    resetBoard ( );
                 }
         }
     }
 }
+
